@@ -55,6 +55,9 @@ import pandas as pd
 from datetime import datetime, timedelta
 import os
 
+# for translations
+from Utilities import gettext as _
+
 
 class Toolbox:
        
@@ -65,7 +68,7 @@ class Toolbox:
         #---------------------------------------------------------------------------------------------------
         # Program Title
         Title_text =  ipw.HTML(
-            "<h3 class= 'text-center'><font color = 'blue'>Python-GEE Surface Water Analysis Toolbox v.1.0.3</font>")
+            _("<h3 class= 'text-center'><font color = 'blue'>Python-GEE Surface Water Analysis Toolbox v.1.0.3</font>"))
         style = {'description_width': 'initial'}
 
         # Image Processing Tab
@@ -73,7 +76,7 @@ class Toolbox:
         # Image Parameters UI
         dataset_description = ipw.HTML(value = f"<b><font color='blue'>{'Satellite Imagery Parameters:'}</b>")
 
-        dataset_Label = ipw.Label('Select Dataset:', layout=Layout(margin='5px 0 0 5px')) #top right bottom left
+        dataset_Label = ipw.Label(_('Select Dataset:'), layout=Layout(margin='5px 0 0 5px')) #top right bottom left
 
         Platform_options = ['Landsat-Collection 1', 'Landsat-Collection 2','Sentinel-1', 'Sentinel-2', 'USDA NAIP' ]
 
