@@ -1,5 +1,20 @@
 {
-  "Select Dataset:": "Selection de Dataset :",
+  "Select Dataset:": "Selection de Data:",
   "Speckle filter:": "Filtre de speckle :",
+    "Start Date:":"Date Debut :",
+    "End Date:":"Date Fin :",
+    "No. of processed images:":"Nombre d'images traitees:",
+    "List of files:":"Liste des fichiers:",
+    "Water Index:":"Indice d'eau:",
+    "Color:":"Couleur:",
+    "Max. Area:":"Max. Zone:",
+    "Min. Area:":"Min. Zone:",
+    "Avg. Area:":"Avg. Zone:",
+    "Max. Depth:":"Max. Profondeur:",
+    "Min. Depth:":"Min. Profondeur:",
+    "Avg. Depth:":"Avg. Profondeur:",
+    "Thresholding Method:":"Methode de seuil :",
+    "Threshold value:":"Valeur de seuil:",
+    "Elevation Dataset:":"Jeu de donnees d'altitude:",
   "<h3 class= 'text-center'><font color = 'blue'>Python-GEE Surface Water Analysis Toolbox v.1.0.3</font>": "<h3 class= 'text-center'><font color = 'blue'>Toolbox Python-GEE pour l'analyse de l'eau  v.1.0.3</font>"
 }

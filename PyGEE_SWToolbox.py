@@ -83,7 +83,7 @@ class Toolbox:
         self.Platform_dropdown = ipw.Dropdown(options = Platform_options, value = None,
                                            layout=Layout(width='150px', margin='5px 0 0 5px'))
         
-        filtering_Label = ipw.Label('Speckle filter:', layout=Layout(margin='5px 0 0 5px'))
+        filtering_Label = ipw.Label(_('Speckle filter:'), layout=Layout(margin='5px 0 0 5px'))
         
         filtering_options = ['Refined-Lee', 'Perona-Malik', 'P-median', 'Lee Sigma', 'Gamma MAP','Boxcar Convolution']
         
@@ -100,7 +100,7 @@ class Toolbox:
         # Study period definition
         #************************************************************************************************
         # Start date picker
-        lbl_start_date = ipw.Label('Start Date:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_start_date = ipw.Label(_('Start Date:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.start_date = ipw.DatePicker(value = datetime.now()-timedelta(7), disabled=False, 
                                     layout=Layout(width='150px', margin='5px 0 0 30px'))
@@ -108,7 +108,7 @@ class Toolbox:
         start_date_box = HBox([lbl_start_date, self.start_date])
 
         # End date picker
-        lbl_end_date = ipw.Label('End Date:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_end_date = ipw.Label(_('End Date:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.end_date = ipw.DatePicker(value = datetime.now(), disabled=False, 
                                   layout=Layout(width='150px', margin='5px 0 0 34px'))
@@ -121,7 +121,7 @@ class Toolbox:
         # Cloud threshold for filtering data
         #************************************************************************************************
         # Set cloud threshold
-        self.cloud_threshold = ipw.IntSlider(description = 'Cloud Threshold:', orientation = 'horizontal',
+        self.cloud_threshold = ipw.IntSlider(description ='Cloud Threshold:', orientation = 'horizontal',
                                          value = 50, step = 5, style = style)
 
         imageParameters = VBox([dataset_description, PlatformType, FilterType, datePickers, self.cloud_threshold], 
@@ -155,13 +155,13 @@ class Toolbox:
         #*****************************************************************************************************
         lbl_results = ipw.HTML(value = f"<b><font color='blue'>{'Processing Results:'}</b>")
 
-        lbl_images = ipw.Label('No. of processed images:')
+        lbl_images = ipw.Label(_('No. of processed images:'))
 
         self.lbl_RetrievedImages = ipw.Label()
 
         display_no_images = HBox([lbl_images, self.lbl_RetrievedImages])
 
-        lbl_files = ipw.Label('List of files:')
+        lbl_files = ipw.Label(_('List of files:'))
 
         self.lst_files = ipw.Select(layout=Layout(width='360px', height='100px'))
 
@@ -179,7 +179,7 @@ class Toolbox:
         # Water extraction indices
         water_index_options = ['NDWI','MNDWI','DSWE', 'AWEInsh', 'AWEIsh']
 
-        lbl_indices = ipw.Label('Water Index:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_indices = ipw.Label(_('Water Index:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.water_indices = ipw.Dropdown(options = water_index_options, value = 'NDWI',
                                     layout=Layout(width='100px', margin='5px 0 0 63px'))
@@ -187,7 +187,7 @@ class Toolbox:
         display_indices = HBox([lbl_indices, self.water_indices])
 
         # Color widget for representing water
-        lbl_color = ipw.Label('Color:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_color = ipw.Label(_('Color:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.index_color =  ipw.ColorPicker(concise = False, value = 'blue',layout=Layout(width='100px', margin='5px 0 0 101px'))
 
@@ -196,7 +196,7 @@ class Toolbox:
         # Water index threshold selection
         threshold_options = ['Simple','Otsu']
 
-        lbl_threshold_method = ipw.Label('Thresholding Method:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_threshold_method = ipw.Label(_('Thresholding Method:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.threshold_dropdown = ipw.Dropdown(options = threshold_options,value = 'Simple',
                                     layout=Layout(width='100px', margin='5px 0 0 10px'))
@@ -204,7 +204,7 @@ class Toolbox:
         display_thresholds = HBox([lbl_threshold_method, self.threshold_dropdown])
 
 
-        lbl_threshold = ipw.Label('Threshold value:', layout=Layout(margin='5px 0 5px 5px'))
+        lbl_threshold = ipw.Label(_('Threshold value:'), layout=Layout(margin='5px 0 5px 5px'))
 
         self.threshold_value = ipw.BoundedFloatText(value=0.000, min = -1.0, max = 1.0, step = 0.050,
                                                layout=Layout(width='100px', margin='5px 0 0 40px'))
@@ -252,7 +252,7 @@ class Toolbox:
         self.userDEM = ipw.Dropdown(description='Select GEE asset:', 
                           layout=Layout(width='300px', margin='0 0 0 10px'), style = style)
 
-        lbl_Elev = ipw.Label('Elevation Dataset:', layout=Layout(margin='0 0 0 10px'))
+        lbl_Elev = ipw.Label(_('Elevation Dataset:'), layout=Layout(margin='0 0 0 10px'))
 
         elev_Box = HBox([self.Depths_Button, self.elev_Methods, self.elevData_options])
 
@@ -303,12 +303,12 @@ class Toolbox:
         self.lbl_Min_Depth = ipw.Label(value ='', layout=Layout(width='100px'))
         self.lbl_Avg_Depth = ipw.Label(value ='', layout=Layout(width='100px'))
 
-        self.cap_Max_Area = ipw.Label(value ='Max. Area:')
-        self.cap_Min_Area = ipw.Label(value ='Min. Area:')
-        self.cap_Avg_Area = ipw.Label(value ='Avg. Area:')
-        self.cap_Max_Depth = ipw.Label(value ='Max. Depth:')
-        self.cap_Min_Depth = ipw.Label(value ='Min. Depth:')
-        self.cap_Avg_Depth = ipw.Label(value ='Avg. Depth:')
+        self.cap_Max_Area = ipw.Label(value =_('Max. Area:'))
+        self.cap_Min_Area = ipw.Label(value =_('Min. Area:'))
+        self.cap_Avg_Area = ipw.Label(value =_('Avg. Area:'))
+        self.cap_Max_Depth = ipw.Label(value =_('Max. Depth:'))
+        self.cap_Min_Depth = ipw.Label(value =_('Min. Depth:'))
+        self.cap_Avg_Depth = ipw.Label(value =_('Avg. Depth:'))
 
         max_box = HBox([self.cap_Max_Area,self.lbl_Max_Area, self.cap_Max_Depth,self.lbl_Max_Depth])
         min_box = HBox([self.cap_Min_Area,self.lbl_Min_Area, self.cap_Min_Depth,self.lbl_Min_Depth])
