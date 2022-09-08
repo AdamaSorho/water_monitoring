@@ -83,7 +83,7 @@ class Toolbox:
         self.Platform_dropdown = ipw.Dropdown(options = Platform_options, value = None,
                                            layout=Layout(width='150px', margin='5px 0 0 5px'))
         
-        filtering_Label = ipw.Label('Speckle filter:', layout=Layout(margin='5px 0 0 5px'))
+        filtering_Label = ipw.Label(_('Speckle filter:'), layout=Layout(margin='5px 0 0 5px'))
         
         filtering_options = ['Refined-Lee', 'Perona-Malik', 'P-median', 'Lee Sigma', 'Gamma MAP','Boxcar Convolution']
         
@@ -100,7 +100,7 @@ class Toolbox:
         # Study period definition
         #************************************************************************************************
         # Start date picker
-        lbl_start_date = ipw.Label('Start Date:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_start_date = ipw.Label(_('Start Date:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.start_date = ipw.DatePicker(value = datetime.now()-timedelta(7), disabled=False, 
                                     layout=Layout(width='150px', margin='5px 0 0 30px'))
@@ -108,7 +108,7 @@ class Toolbox:
         start_date_box = HBox([lbl_start_date, self.start_date])
 
         # End date picker
-        lbl_end_date = ipw.Label('End Date:', layout=Layout(margin='5px 0 0 5px'))
+        lbl_end_date = ipw.Label(_('End Date:'), layout=Layout(margin='5px 0 0 5px'))
 
         self.end_date = ipw.DatePicker(value = datetime.now(), disabled=False, 
                                   layout=Layout(width='150px', margin='5px 0 0 34px'))
