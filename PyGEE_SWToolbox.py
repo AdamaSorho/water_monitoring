@@ -266,7 +266,7 @@ class Toolbox:
 
         # Ploting and Statistics Tab
         #***************************************************************************************************
-        lbl_Area_Plotting = ipw.HTML(value = f"<b><font color='blue'>{'Surface Water Area Computation:'}</b>")
+        lbl_Area_Plotting = ipw.HTML(value = _("<b><font color='blue'>Surface Water Area Computation:</b>"))
         self.area_unit = ipw.Dropdown(options = ['Square m','Square Km', 'Hectares', 'Acre'], value = 'Square m',
                                     description = 'Unit for water surface area:', style=style,
                                     tooltip='Select unit for areas')
@@ -574,11 +574,11 @@ class Toolbox:
         tab.children = tab_children
 
         # changing the title of the first and second window
-        tab.set_title(0, 'Image Processing')
-        tab.set_title(1, 'Water Extraction')
-        tab.set_title(2, 'Spatial Analysis')
-        tab.set_title(3, 'Plotting & Stats')
-        tab.set_title(4, 'Download & Export')
+        tab.set_title(0, _('Image Processing'))
+        tab.set_title(1, _('Water Extraction'))
+        tab.set_title(2, _('Spatial Analysis'))
+        tab.set_title(3, _('Plotting & Stats'))
+        tab.set_title(4, _('Download & Export'))
 
 
         # Plotting outputs and feedback to user
@@ -594,7 +594,7 @@ class Toolbox:
         GUI = VBox([Title_text,tab,self.Map])
         display(GUI)
         self.fig = go.FigureWidget()
-        self.fig.update_layout(title = '<b>Surface Water Area Hydrograph<b>', 
+        self.fig.update_layout(title = _('<b>Surface Water Area Hydrograph<b>'),
                                       title_x = 0.5, title_y = 0.90, title_font=dict(family="Arial",size=24),
                                       template = "plotly_white",
                                       xaxis =dict(title ='<b>Date<b>', linecolor = 'Black'),
