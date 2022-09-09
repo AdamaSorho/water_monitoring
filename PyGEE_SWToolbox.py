@@ -978,7 +978,7 @@ class Toolbox:
                 self.fig.add_trace(go.Scatter(x=df['Date'], y=df['Area'], name='Water Hydrograph', 
                         mode='lines+markers', line=dict(dash = 'solid', color ='Blue', width = 0.5)))
 
-                self.fig.layout.title = '<b>Surface Water Area Hydrograph<b>'
+                self.fig.layout.title = _('<b>Surface Water Area Hydrograph<b>')
                 self.fig.layout.titlefont = dict(family="Arial",size=24)
                 self.fig.layout.title.x = 0.5
                 self.fig.layout.title.y = 0.9
