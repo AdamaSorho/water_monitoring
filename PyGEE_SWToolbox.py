@@ -121,7 +121,7 @@ class Toolbox:
         # Cloud threshold for filtering data
         #************************************************************************************************
         # Set cloud threshold
-        self.cloud_threshold = ipw.IntSlider(description ='Cloud Threshold:', orientation = 'horizontal',
+        self.cloud_threshold = ipw.IntSlider(description =_('Cloud Threshold:'), orientation = 'horizontal',
                                          value = 50, step = 5, style = style)
 
         imageParameters = VBox([dataset_description, PlatformType, FilterType, datePickers, self.cloud_threshold], 
@@ -135,13 +135,13 @@ class Toolbox:
 
         self.user_preference = ipw.RadioButtons(options=['Map drawn boundary','Upload boundary'], value='Map drawn boundary')
 
-        self.file_selector = FileChooser(description = 'Upload', filter_pattern = ["*.shp"], use_dir_icons = True)
+        self.file_selector = FileChooser(description = _('Upload'), filter_pattern = ["*.shp"], use_dir_icons = True)
 
         # Retrieve and process satellite images
         #***********************************************************************************************
         # Button to retrieve and process satellite images from the GEE platform
-        self.imageProcessing_Button = ipw.Button(description = 'Process images',
-                                            tooltip='Click to process images', button_style = 'info',
+        self.imageProcessing_Button = ipw.Button(description = _('Process images'),
+                                            tooltip=_('Click to process images'), button_style = 'info',
                                            layout=Layout(width='150px', margin='5px 0 0 50px', border='solid 2px black'))
 
         # Study area UI and process button container
@@ -214,7 +214,7 @@ class Toolbox:
         water_index_Box = VBox([display_indices, display_thresholds, display_threshold_widget, display_color_widget],
                               layout=Layout(width='250px', border='solid 2px black'))
 
-        self.extractWater_Button = ipw.Button(description = 'Extract Water', tooltip='Click to extract surface water', 
+        self.extractWater_Button = ipw.Button(description = _('Extract Water'), tooltip=_('Click to extract surface water'), 
                                         button_style = 'info', 
                                          layout=Layout(width='150px', margin='5px 0 0 20px', border='solid 2px black'))
 
@@ -224,14 +224,14 @@ class Toolbox:
         # Spatial Analysis Tab
         #**************************************************************************************************
 
-        self.water_Frequency_button = ipw.Button(description = 'Compute Water Frequency',
-                                            tooltip='Click to compute water occurence frequency',
+        self.water_Frequency_button = ipw.Button(description = _('Compute Water Frequency'),
+                                            tooltip=_('Click to compute water occurence frequency'),
                                             button_style = 'info', 
                                             layout=Layout(width='200px', border='solid 2px black',margin='5 0 0 50px'))
         self.water_Frequency_button.disabled = True
 
-        self.Depths_Button = ipw.Button(description = 'Compute Depth Map',
-                                        tooltip='Click to generate depth maps', button_style = 'info',
+        self.Depths_Button = ipw.Button(description = _('Compute Depth Map'),
+                                        tooltip=_('Click to generate depth maps'), button_style = 'info',
                                         layout=Layout(width='200px', border='solid 2px black',margin='5 0 0 50px'))
         self.Depths_Button.disabled = True
 
@@ -244,20 +244,20 @@ class Toolbox:
 #                             layout=Layout(width='210px', margin='0 0 0 10px'), style = style)
         
         self.elev_Methods = ipw.Dropdown(options=['Experimental','FwDET'], value='FwDET',
-                            description='Depth method:',
+                            description=_('Depth method:'),
                             layout=Layout(width='210px', margin='0 0 0 10px'), style = style)
         
         self.elev_Methods.disabled = True
 
-        self.userDEM = ipw.Dropdown(description='Select GEE asset:', 
+        self.userDEM = ipw.Dropdown(description=_('Select GEE asset:'), 
                           layout=Layout(width='300px', margin='0 0 0 10px'), style = style)
 
         lbl_Elev = ipw.Label(_('Elevation Dataset:'), layout=Layout(margin='0 0 0 10px'))
 
         elev_Box = HBox([self.Depths_Button, self.elev_Methods, self.elevData_options])
 
-        self.zonalAnalysis_Button = ipw.Button(description = 'Zonal Analysis',
-                                        tooltip='Click to remove clouds', button_style = 'info',
+        self.zonalAnalysis_Button = ipw.Button(description = _('Zonal Analysis'),
+                                        tooltip=_('Click to remove clouds'), button_style = 'info',
                                        layout=Layout(width='200px', border='solid 2px black',margin='5 0 0 50px'))
 
         # Spatial_Analysis_Tab = VBox([water_Frequency_button, elev_Box, zonalAnalysis_Button])
@@ -268,10 +268,10 @@ class Toolbox:
         #***************************************************************************************************
         lbl_Area_Plotting = ipw.HTML(value = _("<b><font color='blue'>Surface Water Area Computation:</b>"))
         self.area_unit = ipw.Dropdown(options = ['Square m','Square Km', 'Hectares', 'Acre'], value = 'Square m',
-                                    description = 'Unit for water surface area:', style=style,
-                                    tooltip='Select unit for areas')
+                                    description = _('Unit for water surface area:'), style=style,
+                                    tooltip=_('Select unit for areas'))
 
-        self.plot_button = ipw.Button(description = 'Compute and Plot Areas', tooltip='Click to plot graph', button_style = 'info',
+        self.plot_button = ipw.Button(description = _('Compute and Plot Areas'), tooltip=_('Click to plot graph'), button_style = 'info',
                                 layout=Layout(width='170px', margin='10 0 0 200px', border='solid 2px black'))
         self.plot_button.disabled = True
 
@@ -286,7 +286,7 @@ class Toolbox:
 
         # point_selector = FileChooser(description = 'Upload point', filter_pattern = ["*.shp"], use_dir_icons = True)
 
-        self.depth_plot_button = ipw.Button(description = 'Plot depths', tooltip='Click to plot depth hydrograph', button_style = 'info',
+        self.depth_plot_button = ipw.Button(description = _('Plot depths'), tooltip=_('Click to plot depth hydrograph'), button_style = 'info',
                                 layout=Layout(width='170px', margin='10 0 0 100px', border='solid 2px black'))
         self.depth_plot_button.disabled = True
 
@@ -316,14 +316,13 @@ class Toolbox:
 
         stats_box = VBox([lbl_Stats, max_box, min_box, avg_box])
 
-        self.file_selector1 = FileChooser(description = 'Select folder and filename', filter_pattern = "*.csv", use_dir_icons = True)
+        self.file_selector1 = FileChooser(description = _('Select folder and filename'), filter_pattern = "*.csv", use_dir_icons = True)
 
         self.file_selector1.title = 'Select Folder and Filename'
 
         self.file_selector1.default_path = os.getcwd()
 
-        self.save_data_button = ipw.Button(description = 'Save Data',tooltip='Click to save computed areas to file',button_style = 'info',
-                                       layout=Layout(width='100px', border='solid 2px black',margin='5 0 0 50px'))
+        self.save_data_button = ipw.Button(description = _('Save Data'),tooltip=_('Click to save computed areas to file'),button_style =                                          'info',layout=Layout(width='100px', border='solid 2px black',margin='5 0 0 50px'))
 
         lbl_Save = ipw.HTML(value = f"<b><font color='blue'>{'Save Data:'}</b>")
 
@@ -336,21 +335,21 @@ class Toolbox:
         #***************************************************************************************************
         self.files_to_download = ipw.RadioButtons(options=['Satellite Images', 'Water Mask', 'Water Frequency', 'Depth Maps',
                                                       'DSWE Images'], value='Satellite Images', 
-                                             description='Files to download:', style = style)
+                                             description=_('Files to download:'), style = style)
 
         self.download_location = ipw.RadioButtons(options=['Google Drive', 'Local Disk'], 
-                                             value='Google Drive', description='Download Location:', style = style)
+                                             value='Google Drive', description=_('Download Location:'), style = style)
 
-        self.folder_name = ipw.Text(description='Folder Name:')
+        self.folder_name = ipw.Text(description=_('Folder Name:'))
 
-        self.folder_selector = FileChooser(description = 'Select Folder', show_only_dirs = True, use_dir_icons = True)
+        self.folder_selector = FileChooser(description =_('Select Folder'), show_only_dirs = True, use_dir_icons = True)
 
         self.folder_selector.title = '<b>Select a folder</b>'
 
         self.folder_selector.default_path = os.getcwd()
 
-        self.download_button = ipw.Button(description = 'Download',
-                                            tooltip='Click to plot download water images', button_style = 'info')
+        self.download_button = ipw.Button(description =_('Download') ,
+                                            tooltip=_('Click to plot download water images'), button_style = 'info')
         self.download_button.disabled = True
 
 
@@ -979,7 +978,7 @@ class Toolbox:
                 self.fig.add_trace(go.Scatter(x=df['Date'], y=df['Area'], name='Water Hydrograph', 
                         mode='lines+markers', line=dict(dash = 'solid', color ='Blue', width = 0.5)))
 
-                self.fig.layout.title = '<b>Surface Water Area Hydrograph<b>'
+                self.fig.layout.title = _('<b>Surface Water Area Hydrograph<b>')
                 self.fig.layout.titlefont = dict(family="Arial",size=24)
                 self.fig.layout.title.x = 0.5
                 self.fig.layout.title.y = 0.9
